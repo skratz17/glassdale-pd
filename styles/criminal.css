@@ -1,4 +1,4 @@
-.criminalsContainer {
+.criminalList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 4rem;
@@ -13,6 +13,7 @@
 
 .criminal__name {
   font-weight: normal;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 

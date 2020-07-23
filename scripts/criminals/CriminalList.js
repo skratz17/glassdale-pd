@@ -10,6 +10,11 @@ export const CriminalList = () => {
 
       const criminalsHTML = criminals.map(Criminal).join('');
 
-      domNode.innerHTML = criminalsHTML;
+      domNode.innerHTML = `
+        <h2 class="list-header">Glassdale PD Convicted Criminals</h2>
+        <article class="criminalList">
+          ${criminalsHTML}
+        </article>
+      `;
     });
 };

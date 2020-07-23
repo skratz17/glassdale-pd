@@ -9,7 +9,7 @@ export const Criminal = criminal => {
 
   return `
     <section class="criminal" id="criminal--${escapeHTML(id)}">
-      <h2 class="criminal__name">${escapeHTML(name)}</h2>
+      <h3 class="criminal__name">${escapeHTML(name)}</h3>
       <p class="criminal__info-group">
         <span class="criminal__info-group-label">Age</span>
         <span class="criminal__info-group-content">${escapeHTML(age)}</span>
