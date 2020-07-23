@@ -1,4 +1,4 @@
-import { getConvictions, useConvictions } from './ConvictionProvider.js';
+import { getConvictions, useConvictionsAlphabetical } from './ConvictionProvider.js';
 import { ConvictionSelectOption } from './ConvictionSelectOption.js';
 
 const domNode = document.querySelector('.filters__crime');
@@ -6,7 +6,7 @@ const domNode = document.querySelector('.filters__crime');
 export const ConvictionSelect = () => {
   getConvictions()
     .then(() => {
-      const convictions = useConvictions();
+      const convictions = useConvictionsAlphabetical();
 
       const render = convictionsCollection => {
         domNode.innerHTML = `
