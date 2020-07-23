@@ -1,0 +1,21 @@
+.criminalsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.criminal {
+  padding: 1rem;
+  border: 1px dotted #000;
+}
+
+.criminal__name {
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+.criminal__info-group-label::after {
+  content: ':';
+}
