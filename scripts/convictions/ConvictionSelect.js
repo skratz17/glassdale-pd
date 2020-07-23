@@ -13,7 +13,7 @@ export const ConvictionSelect = () => {
           <select class="dropdown" id="crimeSelect">
             <option value="0">Please select a crime...</option>
             ${
-              convictions.map(ConvictionSelectOption).join('')
+              convictionsCollection.map(ConvictionSelectOption).join('')
             }
           </select>
         `;
