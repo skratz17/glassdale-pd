@@ -11,13 +11,13 @@ export const ConvictionSelect = () => {
     });
 
   const render = convictionsCollection => {
-      domNode.innerHTML = `
-        <select class="dropdown" id="crimeSelect">
-          <option value="0">Please select a crime...</option>
-          ${
-            convictionsCollection.map(ConvictionSelectOption).join('')
-          }
-        </select>
-      `;
-    };
+    domNode.innerHTML = `
+      <select class="dropdown" id="crimeSelect">
+        <option value="0">Please select a crime...</option>
+        ${
+          convictionsCollection.map(ConvictionSelectOption).join('')
+        }
+      </select>
+    `;
+  };
 };
