@@ -7,18 +7,17 @@ export const ConvictionSelect = () => {
   getConvictions()
     .then(() => {
       const convictions = useConvictionsAlphabetical();
-
-      const render = convictionsCollection => {
-        domNode.innerHTML = `
-          <select class="dropdown" id="crimeSelect">
-            <option value="0">Please select a crime...</option>
-            ${
-              convictionsCollection.map(ConvictionSelectOption).join('')
-            }
-          </select>
-        `;
-      };
-
       render(convictions);
     });
+
+  const render = convictionsCollection => {
+      domNode.innerHTML = `
+        <select class="dropdown" id="crimeSelect">
+          <option value="0">Please select a crime...</option>
+          ${
+            convictionsCollection.map(ConvictionSelectOption).join('')
+          }
+        </select>
+      `;
+    };
 };
