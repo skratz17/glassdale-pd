@@ -8,7 +8,7 @@ export const CriminalList = () => {
     .then(() => {
       const criminals = useCriminals();
 
-      const criminalsHTML = criminals.map(Criminal).join('\n');
+      const criminalsHTML = criminals.map(Criminal).join('');
 
       domNode.innerHTML = criminalsHTML;
     });
