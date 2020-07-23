@@ -8,7 +8,7 @@ export const Criminal = criminal => {
   const formattedEnd = new Date(end).toLocaleDateString('en-us');
 
   return `
-    <article class="criminal">
+    <article class="criminal" id="criminal--${escapeHTML(id)}">
       <h2 class="criminal__name">${escapeHTML(name)}</h2>
       <p class="criminal__info-group">
         <span class="criminal__info-group-label">Age</span>
@@ -20,11 +20,11 @@ export const Criminal = criminal => {
       </p>
       <p class="criminal__info-group">
         <span class="criminal__info-group-label">Term start</span>
-        <span class="criminal__info-group-content">${formattedStart}</span>
+        <span class="criminal__info-group-content">${escapeHTML(formattedStart)}</span>
       </p>
       <p class="criminal__info-group">
         <span class="criminal__info-group-label">Term end</span>
-        <span class="criminal__info-group-content">${formattedEnd}</span>
+        <span class="criminal__info-group-content">${escapeHTML(formattedEnd)}</span>
       </p>
     </article>
   `;
