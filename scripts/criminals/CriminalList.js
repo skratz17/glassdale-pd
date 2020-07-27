@@ -14,7 +14,12 @@ eventHub.addEventListener('convictionChanged', event => {
   const convictions = useConvictions();
   const conviction = convictions.find(conviction => conviction.id === event.detail.convictionId);
 
-  activeFilters.conviction = criminal => criminal.conviction === conviction.name;
+  if(conviction) {
+    activeFilters.conviction = criminal => criminal.conviction === conviction.name;
+  }
+  else {
+    delete activeFilters.conviction;
+  }
 
   render(getFilteredCriminals());
 });
@@ -23,7 +28,12 @@ eventHub.addEventListener('officerChanged', event => {
   const officers = useOfficers();
   const officer = officers.find(officer => officer.id === event.detail.officerId);
 
-  activeFilters.officer = criminal => criminal.arrestingOfficer === officer.name;
+  if(officer) {
+    activeFilters.officer = criminal => criminal.arrestingOfficer === officer.name;
+  }
+  else {
+    delete activeFilters.officer;
+  }
 
   render(getFilteredCriminals());
 });
