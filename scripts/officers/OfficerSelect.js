@@ -8,9 +8,7 @@ contentTarget.addEventListener('change', event => {
   const officerId = parseInt(event.target.value);
 
   const officerChangedEvent = new CustomEvent('officerChanged', {
-    detail: {
-      officerId
-    }
+    detail: { officerId }
   });
 
   eventHub.dispatchEvent(officerChangedEvent);

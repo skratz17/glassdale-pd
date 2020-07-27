@@ -12,10 +12,10 @@ const activeFilters = {};
 
 eventHub.addEventListener('convictionChanged', event => {
   const convictions = useConvictions();
-  const conviction = convictions.find(conviction => conviction.id === event.detail.convictionId);
+  const foundConviction = convictions.find(conviction => conviction.id === event.detail.convictionId);
 
-  if(conviction) {
-    activeFilters.conviction = criminal => criminal.conviction === conviction.name;
+  if(foundConviction) {
+    activeFilters.conviction = criminal => criminal.conviction === foundConviction.name;
   }
   else {
     delete activeFilters.conviction;
@@ -26,10 +26,10 @@ eventHub.addEventListener('convictionChanged', event => {
 
 eventHub.addEventListener('officerChanged', event => {
   const officers = useOfficers();
-  const officer = officers.find(officer => officer.id === event.detail.officerId);
+  const foundOfficer = officers.find(officer => officer.id === event.detail.officerId);
 
-  if(officer) {
-    activeFilters.officer = criminal => criminal.arrestingOfficer === officer.name;
+  if(foundOfficer) {
+    activeFilters.officer = criminal => criminal.arrestingOfficer === foundOfficer.name;
   }
   else {
     delete activeFilters.officer;
@@ -58,7 +58,7 @@ const render = criminals => {
   domNode.innerHTML = `
     <h2 class="list-header">Glassdale PD Convicted Criminals</h2>
     <article class="criminalList">
-      ${criminalsHTML}
+      ${criminalsHTML || '<p>No criminals match your filtering criteria :/</p>'}
     </article>
   `;
 };
