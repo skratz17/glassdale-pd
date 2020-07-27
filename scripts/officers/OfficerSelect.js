@@ -4,6 +4,18 @@ import { OfficerSelectOption } from './OfficerSelectOption.js';
 const contentTarget = document.querySelector('.filters__officer');
 const eventHub = document.querySelector('.container');
 
+contentTarget.addEventListener('change', event => {
+  const officerId = parseInt(event.target.value);
+
+  const officerChangedEvent = new CustomEvent('officerChanged', {
+    detail: {
+      officerId
+    }
+  });
+
+  eventHub.dispatchEvent(officerChangedEvent);
+});
+
 const render = officers => {
   contentTarget.innerHTML = `
     <select class="dropdown">
