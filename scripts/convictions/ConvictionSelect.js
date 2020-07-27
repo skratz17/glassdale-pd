@@ -6,12 +6,10 @@ const eventHub = document.querySelector('.container');
 
 contentTarget.addEventListener('change', event => {
   if(event.target.id === 'crimeSelect') {
-    const convictionId = event.target.value;
+    const convictionId = parseInt(event.target.value);
 
     const convictionChangedEvent = new CustomEvent('convictionChanged', {
-      detail: {
-        convictionId: parseInt(convictionId)
-      }
+      detail: { convictionId }
     });
 
     eventHub.dispatchEvent(convictionChangedEvent);
