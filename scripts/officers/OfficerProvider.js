@@ -1,8 +1,8 @@
 let officers = [];
 
-const useOfficers = () => officers.slice();
+export const useOfficers = () => officers.slice();
 
-const getOfficers = () => {
+export const getOfficers = () => {
   return fetch('https://criminals.glassdale.us/officers')
     .then(res => res.json())
     .then(officersData => officers = officersData);
