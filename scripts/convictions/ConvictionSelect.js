@@ -1,10 +1,25 @@
 import { getConvictions, useConvictionsAlphabetical } from './ConvictionProvider.js';
 import { ConvictionSelectOption } from './ConvictionSelectOption.js';
 
-const domNode = document.querySelector('.filters__crime');
+const contentTarget = document.querySelector('.filters__crime');
+const eventHub = document.querySelector('.container');
+
+contentTarget.addEventListener('change', event => {
+  if(event.target.id === 'crimeSelect') {
+    const convictionId = event.target.value;
+
+    const convictionChangedEvent = new CustomEvent('convictionChanged', {
+      detail: {
+        convictionId: parseInt(convictionId)
+      }
+    });
+
+    eventHub.dispatchEvent(convictionChangedEvent);
+  }
+});
 
 const render = convictions => {
-  domNode.innerHTML = `
+  contentTarget.innerHTML = `
     <select class="dropdown" id="crimeSelect">
       <option value="0">Please select a crime...</option>
       ${
