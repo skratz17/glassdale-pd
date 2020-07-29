@@ -19,4 +19,14 @@ export const NoteList = () => {
     });
 };
 
+const hideNoteList = () => {
+  contentTarget.innerHTML = '';
+}
+
+const toggleNoteListDisplay = event => {
+  if(event.detail.shouldHideNotes) hideNoteList();
+  else NoteList();
+};
+
+eventHub.addEventListener('notesToggled', toggleNoteListDisplay);
 eventHub.addEventListener('noteStateChanged', NoteList);
