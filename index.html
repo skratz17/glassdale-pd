@@ -8,17 +8,23 @@
 </head>
 
 <body>
-
+    <header class="header">
+        <h1 class="main-header">Glassdale Police Department</h1>
+        <p class="slogan">To "protect" and "serve"</p>
+    </header>
     <main class="container">
-        <header>
+        <div class="content--left">
             <div class="filters">
                 <div class="filter filters__crime"></div>
                 <div class="filter filters__incarceration"></div>
                 <div class="filter filters__officer"></div>
             </div>
-        </header>
-        <article class="noteFormContainer"></article>
-        <article class="criminalsContainer"></article>
+            <article class="criminalsContainer"></article>
+        </div>
+        <div class="content--right">
+            <article class="noteFormContainer"></article>
+            <aside class="notesContainer"></aside>
+        </div>
     </main>
 
     <script type="module" src="./scripts/main.js"></script>

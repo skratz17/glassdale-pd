@@ -1,7 +1,9 @@
 import escapeHTML from '../utilities/escapeHTML.js';
 
 export const OfficerSelectOption = officer => {
+  const { id, name } = officer;
+
   return `
-    <option value="${escapeHTML(officer.id)}">${escapeHTML(officer.name)}</option>
+    <option value="${escapeHTML(id)}">${escapeHTML(name)}</option>
   `;
 };
