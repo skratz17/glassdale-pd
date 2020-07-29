@@ -55,7 +55,7 @@ const hideNoteForm = () => {
   contentTarget.innerHTML = '';
 }
 
-const toggleNoteFormDisplay = () => {
+const toggleNoteFormDisplay = event => {
   if(event.detail.shouldHideNotes) hideNoteForm();
   else NoteForm()
 };
