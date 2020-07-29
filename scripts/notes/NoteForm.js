@@ -42,14 +42,25 @@ const render = () => {
         <label class="note-form__label" for="text">Note Text</label>
         <textarea required class="note-form__input note-form__textarea" name="text" id="note--text" placeholder="Enter your note content"></textarea>
       </div>
-      <button type="submit" id="saveNote" class="note-form__button">Save Note</button>
+      <button type="submit" id="saveNote" class="btn note-form__button">Save Note</button>
     </form>
   `;
 };
 
-// re-render the form once the note you submitted has been succesfully saved. this will clear all form inputs and re-enable all of them.
-eventHub.addEventListener('noteStateChanged', render);
-
 export const NoteForm = () => {
   render();
 };
+
+const hideNoteForm = () => {
+  contentTarget.innerHTML = '';
+}
+
+const toggleNoteFormDisplay = () => {
+  if(event.detail.shouldHideNotes) hideNoteForm();
+  else NoteForm()
+};
+
+// re-render the form once the note you submitted has been succesfully saved. this will clear all form inputs and re-enable all of them.
+eventHub.addEventListener('noteStateChanged', NoteForm);
+
+eventHub.addEventListener('notesToggled', toggleNoteFormDisplay);

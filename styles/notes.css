@@ -1,3 +1,20 @@
+.showNotesButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.showNotesButton {
+  margin: 1rem 0;
+}
+
+.showNotesButton--show {
+  background-color: #84f784;
+}
+
+.showNotesButton--hide {
+  background-color: #fbc4c4;
+}
+
 .notesContainer {
   margin-top: 2rem;
 }
