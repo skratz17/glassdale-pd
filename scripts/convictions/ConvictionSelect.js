@@ -19,7 +19,7 @@ contentTarget.addEventListener('change', event => {
 const render = convictions => {
   contentTarget.innerHTML = `
     <select class="dropdown" id="crimeSelect">
-      <option value="0">Please select a crime...</option>
+      <option value="0">Select a crime...</option>
       ${
         convictions.map(ConvictionSelectOption).join('')
       }

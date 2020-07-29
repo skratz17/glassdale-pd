@@ -34,3 +34,7 @@
 .note-form__button:hover {
   background-color: #09b109; 
 }
+
+.note-form__button[disabled] {
+  background-color: #dadada;
+}
