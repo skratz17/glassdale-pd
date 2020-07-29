@@ -1,4 +1,4 @@
-const contentTarget = document.querySelector('.showNotesButtonContainer');
+const contentTarget = document.querySelector('.toggleNotesDisplayButtonContainer');
 const eventHub = document.querySelector('.container');
 
 let areNotesHidden = true;
@@ -13,14 +13,15 @@ contentTarget.addEventListener('click', event => {
       }
     });
     eventHub.dispatchEvent(notesToggled);
+
     render();
   }
 });
 
 const render = () => {
-  contentTarget.innerHTML = `<button id="notesToggle" class="btn showNotesButton showNotesButton--${areNotesHidden ? 'show' : 'hide'}">${areNotesHidden ? 'Show' : 'Hide'} Notes</button>`;
+  contentTarget.innerHTML = `<button id="notesToggle" class="btn toggleNotesDisplayButton toggleNotesDisplayButton--${areNotesHidden ? 'show' : 'hide'}">${areNotesHidden ? 'Show' : 'Hide'} Notes</button>`;
 };
 
-export const ShowNotesButton = () => {
+export const ToggleNotesDisplayButton = () => {
   render();
 };
