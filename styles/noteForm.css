@@ -1,0 +1,36 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.note-form__label {
+  color: #333;
+  margin-bottom: 0.1rem;
+}
+
+.note-form__input {
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  border: none;
+}
+
+.note-form__textarea {
+  min-height: 8rem;
+}
+
+.note-form__button {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #05c905;
+  width: 100px;
+  display: block;
+  margin-left: auto;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+
+.note-form__button:hover {
+  background-color: #09b109; 
+}

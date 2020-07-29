@@ -10,6 +10,7 @@
   padding: 1rem;
   border: 1px dotted #000;
   background: url('../assets/jail.png') center center / cover;
+  background-color: #fff;
 }
 
 .criminal__name {

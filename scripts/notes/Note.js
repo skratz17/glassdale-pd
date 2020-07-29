@@ -8,19 +8,20 @@ export const Note = note => {
   return `
     <section class="card note">
       <div class="note__content-group">
-        <p class="note__label">Title</p>
-        <p class="note__content">${escapeHTML(title)}</p>
+        <h3 class="note__content note__title">${escapeHTML(title)}</h3>
       </div>
       <div class="note__content-group">
-        <p class="note__content">${escapeHTML(text)}</p>
+        <p class="note__content note__text">${escapeHTML(text)}</p>
       </div>
-      <div class="note__content-group">
-        <p class="note__label">Author</p>
-        <p class="note__content">${escapeHTML(author)}</p>
-      </div>
-      <div class="note__content-group">
-        <p class="note__label">Date</p>
-        <p class="note__content">${escapeHTML(formattedDate)}</p>
+      <div class="note--footer">
+        <div class="note__content-group">
+          <p class="note__label">Author</p>
+          <p class="note__content note__author">${escapeHTML(author)}</p>
+        </div>
+        <div class="note__content-group">
+          <p class="note__label">Date</p>
+          <p class="note__content note__date">${escapeHTML(formattedDate)}</p>
+        </div>
       </div>
     </section>
   `;
