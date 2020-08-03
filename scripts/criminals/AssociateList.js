@@ -25,6 +25,9 @@ eventHub.addEventListener('associatesRequested', event => {
   AssociateList(criminalId);
 });
 
+/**
+ * Remove self from DOM on click, broadcast event saying this AssociateList was closed
+ */
 eventHub.addEventListener('click', event => {
   if(event.target.id.startsWith('close-associates--')) {
     const criminalId = event.target.id.split('--')[1];

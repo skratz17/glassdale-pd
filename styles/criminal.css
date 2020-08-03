@@ -49,6 +49,10 @@
   list-style-type: none;
 }
 
+.associate {
+  margin-bottom: 0.5rem;
+}
+
 .associate__name {
   font-weight: bold;
 }
