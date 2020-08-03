@@ -13,7 +13,7 @@ export const Note = note => {
         <h3 class="note__content note__title">${escapeHTML(title)}</h3>
       </div>
       <div class="note__content-group">
-        <p class="note__content note__text">${escapeHTML(text)}</p>
+        ${text.split('\n').map(line => `<p class="note__content note__text">${escapeHTML(line)}</p>`).join('')}
       </div>
       <div class="note--footer">
         <div class="note__content-group">
