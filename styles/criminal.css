@@ -11,6 +11,10 @@
   background: url('../assets/jail.png') center center / contain;
 }
 
+.unlikely {
+  opacity: 0.5;
+}
+
 .criminal__name {
   font-weight: normal;
   font-size: 1.5rem;

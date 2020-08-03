@@ -7,8 +7,10 @@ export const Criminal = criminal => {
   const formattedStart = new Date(start).toLocaleDateString('en-us');
   const formattedEnd = new Date(end).toLocaleDateString('en-us');
 
+  const isUnlikelySuspect = Date.parse(start) < Date.parse('2014-01-01') && Date.parse(end) > (Date.parse('2016-12-31'));
+
   return `
-    <section class="card criminal" id="criminal--${escapeHTML(id)}">
+    <section class="card criminal ${isUnlikelySuspect ? 'unlikely' : ''}" id="criminal--${escapeHTML(id)}">
       <h3 class="criminal__name">${escapeHTML(name)}</h3>
       <p class="criminal__info-group">
         <span class="criminal__info-group-label">Age</span>
