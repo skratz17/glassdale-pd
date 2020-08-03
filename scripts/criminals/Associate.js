@@ -5,8 +5,8 @@ export const Associate = associate => {
 
   return `
     <li class="associate">
-      <p>${escapeHTML(name)}</p>
-      <p>${escapeHTML(alibi)}</p>
+      <p class="associate__name">${escapeHTML(name)}</p>
+      <p class="associate__alibi">${escapeHTML(alibi)}</p>
     </li>
   `;
 };

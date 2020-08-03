@@ -11,6 +11,7 @@ export const AssociateList = criminalId => {
   contentTarget.innerHTML += `
     <div class="associates-wrapper" id="associates-wrapper--${criminalId}">
       <button class="btn associates__close-button" id="close-associates--${criminalId}">Hide Associates</button>
+      <h4 class="associates__header">Associates</h4>
       <ul class="associates">
         ${associates.map(Associate).join('')}
       </ul>

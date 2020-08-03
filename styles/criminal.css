@@ -44,3 +44,28 @@
   background-color: #051794;
   color: #fff;
 }
+
+.associates-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.associates__close-button {
+  margin: 0.5rem 0;
+  background-color: #fbc4c4;
+}
+
+.associates__header {
+  text-decoration: underline;
+  margin-bottom: 0.5rem;
+}
+
+.associates {
+  list-style-type: none;
+}
+
+.associate__name {
+  font-weight: bold;
+}

@@ -57,9 +57,8 @@ domNode.addEventListener('click', event => {
 eventHub.addEventListener('associateListClosed', event => {
   const criminalId = event.detail.criminalId;
 
-  const criminalCard = document.querySelector(`#criminal--${criminalId}`);
-
-  criminalCard.innerHTML += `<button class="btn criminal__associates-button" id="associates--${criminalId}">Associate Alibis</button>`;
+  const associatesButton = document.querySelector(`#associates--${criminalId}`);
+  associatesButton.classList.remove('hide');
 });
 
 /**
