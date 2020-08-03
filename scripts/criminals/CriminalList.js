@@ -3,7 +3,7 @@ import { useConvictions } from '../convictions/ConvictionProvider.js';
 import { useOfficers } from '../officers/OfficerProvider.js';
 import { Criminal } from './Criminal.js';
 
-const domNode = document.querySelector('.criminalsContainer');
+const domNode = document.querySelector('.mainListContainer');
 const eventHub = document.querySelector('.container');
 
 // keeps track of which filters are currently active under key of type of filter
@@ -79,6 +79,7 @@ const render = criminals => {
   const criminalsHTML = criminals.map(Criminal).join('');
 
   domNode.innerHTML = `
+    
     <article class="criminalList">
       ${criminalsHTML || '<p>No criminals match your filtering criteria :/</p>'}
     </article>

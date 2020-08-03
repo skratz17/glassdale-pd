@@ -1,0 +1,19 @@
+.card {
+  padding: 1rem;
+  border: 1px solid #0002;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  z-index: -1;
+  opacity: 0.3;
+}

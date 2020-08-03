@@ -1,20 +1,3 @@
-.toggleNotesDisplayButtonContainer {
-  display: flex;
-  justify-content: center;
-}
-
-.toggleNotesDisplayButton {
-  margin: 1rem 0;
-}
-
-.toggleNotesDisplayButton--show {
-  background-color: #84f784;
-}
-
-.toggleNotesDisplayButton--hide {
-  background-color: #fbc4c4;
-}
-
 .notesContainer {
   margin-top: 2rem;
 }
