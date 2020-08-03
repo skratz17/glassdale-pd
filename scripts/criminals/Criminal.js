@@ -8,7 +8,7 @@ export const Criminal = criminal => {
   const formattedEnd = new Date(end).toLocaleDateString('en-us');
 
   return `
-    <section class="criminal" id="criminal--${escapeHTML(id)}">
+    <section class="card criminal" id="criminal--${escapeHTML(id)}">
       <h3 class="criminal__name">${escapeHTML(name)}</h3>
       <p class="criminal__info-group">
         <span class="criminal__info-group-label">Age</span>

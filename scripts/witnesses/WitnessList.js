@@ -2,10 +2,13 @@ import { getWitnesses, useWitnesses } from './WitnessProvider.js';
 import { Witness } from './Witness.js';
 
 const domNode = document.querySelector('.mainListContainer');
-const eventHub = document.querySelector('.container')
 
 const render = witnesses => {
-  domNode.innerHTML = witnesses.map(Witness).join('');
+  domNode.innerHTML = `
+    <article class="witnessList">
+      ${witnesses.map(Witness).join('')}
+    </article>
+  `;
 };
 
 export const WitnessList = () => {

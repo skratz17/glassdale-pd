@@ -25,7 +25,7 @@ contentTarget.addEventListener('click', event => {
 });
 
 const render = () => {
-  contentTarget.innerHTML = `<button id="criminalsOrWitnessesToggle" class="btn criminalsOrWitnessesButton criminalsOrWitnessesButton--${isCriminalsListDisplayed ? 'criminals' : 'witnesses'}">Show ${isCriminalsListDisplayed ? 'Witnesses' : 'Criminals'}</button>`;
+  contentTarget.innerHTML = `<button id="criminalsOrWitnessesToggle" class="btn toggleCriminalsOrWitnessesButton toggleCriminalsOrWitnessesButton--${isCriminalsListDisplayed ? 'witnesses' : 'criminals'}">Show ${isCriminalsListDisplayed ? 'Witnesses List' : 'Criminals List'}</button>`;
 }
 
 export const ToggleCriminalsOrWitnessesButton = () => {

@@ -1,0 +1,22 @@
+.witnessList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
+  grid-gap: 2rem;
+  max-width: 1200px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.witness {
+  min-height: 200px;
+}
+
+.witness::after {
+  background: url('../assets/magnifyingGlass.png') top center / cover;
+}
+
+.witness__name {
+  font-weight: normal;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}

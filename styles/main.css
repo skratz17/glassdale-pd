@@ -1,5 +1,8 @@
 @import './filters.css';
+@import './layoutControls.css';
+@import './card.css';
 @import './criminal.css';
+@import './witness.css';
 @import './noteForm.css';
 @import './notes.css';
 

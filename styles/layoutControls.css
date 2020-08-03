@@ -1,0 +1,27 @@
+.layoutControls {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.toggleNotesDisplayButton,
+.toggleCriminalsOrWitnessesButton {
+  margin: 1rem 0;
+  margin-right: 1rem;
+}
+
+.toggleNotesDisplayButton--show {
+  background-color: #84f784;
+}
+
+.toggleNotesDisplayButton--hide {
+  background-color: #fbc4c4;
+}
+
+.toggleCriminalsOrWitnessesButton--criminals {
+  background: url('../assets/jail.png') center center / cover;
+}
+
+.toggleCriminalsOrWitnessesButton--witnesses {
+  background: url('../assets/magnifyingGlass.png') center center / contain;
+}
