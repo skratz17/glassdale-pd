@@ -1,6 +1,6 @@
 .criminalList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 200px));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 250px));
   grid-gap: 2rem;
   max-width: 1200px;
   justify-content: center;
@@ -11,6 +11,8 @@
   padding: 1rem;
   border: 1px solid #0002;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .criminal::after {
@@ -34,4 +36,9 @@
 
 .criminal__info-group-label::after {
   content: ':';
+}
+
+.criminal__associates-button {
+  align-self: flex-end;
+  margin-top: auto;
 }

@@ -26,6 +26,7 @@ export const Criminal = criminal => {
         <span class="criminal__info-group-label">Term end</span>
         <span class="criminal__info-group-content">${escapeHTML(formattedEnd)}</span>
       </p>
+      <button class="criminal__associates-button" id="associates--${escapeHTML(id)}">Associate Alibis</button>
     </section>
   `;
 };
