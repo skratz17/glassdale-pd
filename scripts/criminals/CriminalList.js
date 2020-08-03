@@ -38,6 +38,30 @@ eventHub.addEventListener('officerChanged', event => {
   render(getFilteredCriminals());
 });
 
+domNode.addEventListener('click', event => {
+  if(event.target.id.startsWith('associates--')) {
+    event.target.classList.add('hide');
+
+    const criminalId = event.target.id.split('--')[1];
+
+    const associatesRequestedEvent = new CustomEvent('associatesRequested', {
+      detail: { 
+        criminalId: parseInt(criminalId)
+      }
+    });
+
+    eventHub.dispatchEvent(associatesRequestedEvent);
+  }
+});
+
+eventHub.addEventListener('associateListClosed', event => {
+  const criminalId = event.detail.criminalId;
+
+  const criminalCard = document.querySelector(`#criminal--${criminalId}`);
+
+  criminalCard.innerHTML += `<button class="btn criminal__associates-button" id="associates--${criminalId}">Associate Alibis</button>`;
+});
+
 /**
  * Filter down the criminals array based on all filters currently active.
  * Returns array of criminals after having been filtered by all active filters.

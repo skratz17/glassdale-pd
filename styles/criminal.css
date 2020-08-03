@@ -41,4 +41,6 @@
 .criminal__associates-button {
   align-self: flex-end;
   margin-top: auto;
+  background-color: #051794;
+  color: #fff;
 }

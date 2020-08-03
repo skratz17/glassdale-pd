@@ -4,6 +4,7 @@ import { CriminalList } from './criminals/CriminalList.js';
 import { ToggleNotesDisplayButton } from './notes/ToggleNotesDisplayButton.js';
 import './notes/NoteForm.js';
 import './notes/NoteList.js';
+import './criminals/AssociateList.js';
 import './layoutChangeHandler.js';
 
 ConvictionSelect();
