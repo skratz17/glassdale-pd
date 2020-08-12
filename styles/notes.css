@@ -29,6 +29,11 @@
   color: #333;
 }
 
+.note__criminal-name {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
 .note--footer {
   display: flex;
   justify-content: space-evenly;
