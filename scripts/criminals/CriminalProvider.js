@@ -2,6 +2,12 @@ let criminals = [];
 
 export const useCriminals = () => criminals.slice();
 
+export const useCriminalsAlphabetized = () => (
+  criminals
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name))
+);
+
 export const useAssociates = criminalId => {
   return criminals
     .find(criminal => criminal.id === criminalId)
