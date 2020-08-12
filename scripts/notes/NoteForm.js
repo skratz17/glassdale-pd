@@ -1,10 +1,11 @@
 import { saveNote } from './NoteProvider.js';
+import { getCriminals, useCriminalsAlphabetized } from '../criminals/CriminalProvider.js';
 
 const contentTarget = document.querySelector('.noteFormContainer');
 const eventHub = document.querySelector('.container');
 
 /**
- * Listen for form submit, build note object with keys = names of form inputs, values = values of those inputs, save the note via API
+ * Listen for form submit, build note object with keys = names of form inputs, values = values of those inputs (criminalId must first be parsed to int), save the note via API
  */
 contentTarget.addEventListener('submit', event => {
   if(event.target.id === 'note-form') {
@@ -18,7 +19,13 @@ contentTarget.addEventListener('submit', event => {
       element.disabled = true;
 
       if(element.nodeName.toLowerCase() !== 'button') {
-        note[element.name] = element.value;
+        let valueToStore = element.value;
+
+        if(element.name === 'criminalId') {
+          valueToStore = parseInt(element.value);
+        }
+
+        note[element.name] = valueToStore;
       }
     }
 
@@ -26,7 +33,7 @@ contentTarget.addEventListener('submit', event => {
   }
 });
 
-const render = () => {
+const render = criminals => {
   contentTarget.innerHTML = `
     <h2 class="header">Create a New Note</h2>
     <form id="note-form">
@@ -39,6 +46,13 @@ const render = () => {
         <input required class="note-form__input" type="text" name="author" id="note--author" placeholder="Enter an author">
       </div>
       <div class="form-group">
+        <label class="note-form__label" for="criminalId">Criminal</label>
+        <select class="note-form__criminalId" id="note--criminalId" name="criminalId">
+          <option value="0">Select a criminal...</option>
+          ${criminals.map(criminal => `<option value="${criminal.id}">${criminal.name}</option>`).join('')}
+        </select>
+      </div>
+      <div class="form-group">
         <label class="note-form__label" for="text">Note Text</label>
         <textarea required class="note-form__input note-form__textarea" name="text" id="note--text" placeholder="Enter your note content"></textarea>
       </div>
@@ -48,15 +62,19 @@ const render = () => {
 };
 
 export const NoteForm = () => {
-  render();
+  getCriminals()
+    .then(() => {
+      const criminals = useCriminalsAlphabetized();
+      render(criminals);
+    });
 };
 
-const hideNoteForm = () => {
+const derender = () => {
   contentTarget.innerHTML = '';
 }
 
 const toggleNoteFormDisplay = event => {
-  if(event.detail.shouldHideNotes) hideNoteForm();
+  if(event.detail.shouldHideNotes) derender();
   else NoteForm()
 };
 
