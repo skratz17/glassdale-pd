@@ -1,6 +1,6 @@
 import escapeHTML from '../utilities/escapeHTML.js';
 
-export const Note = note => {
+export const Note = (note, criminal) => {
   const { title, author, text, timestamp } = note;
 
   const dateObj = new Date(timestamp);
@@ -11,6 +11,7 @@ export const Note = note => {
     <section class="card note">
       <div class="note__content-group">
         <h3 class="note__content note__title">${escapeHTML(title)}</h3>
+        <p class="note__content note__criminal-name">Regarding ${escapeHTML(criminal.name)}</p>
       </div>
       <div class="note__content-group">
         ${text.split('\n').map(line => `<p class="note__content note__text">${escapeHTML(line)}</p>`).join('')}
