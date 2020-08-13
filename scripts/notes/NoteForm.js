@@ -5,9 +5,6 @@ import validator from './noteFormValidator.js';
 const contentTarget = document.querySelector('.noteFormContainer');
 const eventHub = document.querySelector('.container');
 
-/**
- * Listen for form submit, build note object with keys = names of form inputs, values = values of those inputs (criminalId must first be parsed to int), save the note via API
- */
 contentTarget.addEventListener('submit', event => {
   if(event.target.id === 'note-form') {
     const formElement = event.target;
@@ -33,12 +30,12 @@ const render = criminals => {
       <div class="form-group">
         <ul class="note-form__errors note-form__title-errors"></ul>
         <label class="note-form__label" for="title">Title</label>
-        <input required class="note-form__input" type="text" name="title" id="note--title" placeholder="Enter a title">
+        <input class="note-form__input" type="text" name="title" id="note--title" placeholder="Enter a title">
       </div>
       <div class="form-group">
         <ul class="note-form__errors note-form__author-errors"></ul>
         <label class="note-form__label" for="author">Author</label>
-        <input required class="note-form__input" type="text" name="author" id="note--author" placeholder="Enter an author">
+        <input class="note-form__input" type="text" name="author" id="note--author" placeholder="Enter an author">
       </div>
       <div class="form-group">
         <ul class="note-form__errors note-form__criminalId-errors"></ul>
@@ -51,7 +48,7 @@ const render = criminals => {
       <div class="form-group">
         <ul class="note-form__errors note-form__text-errors"></ul>
         <label class="note-form__label" for="text">Note Text</label>
-        <textarea required class="note-form__input note-form__textarea" name="text" id="note--text" placeholder="Enter your note content"></textarea>
+        <textarea class="note-form__input note-form__textarea" name="text" id="note--text" placeholder="Enter your note content"></textarea>
       </div>
       <button type="submit" id="saveNote" class="btn note-form__button">Save Note</button>
     </form>
