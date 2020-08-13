@@ -31,3 +31,9 @@
 .note-form__button[disabled] {
   background-color: #dadada;
 }
+
+.note-form__errors {
+  list-style-type: none;
+  background: #fff;
+  color: #e10833;
+}
