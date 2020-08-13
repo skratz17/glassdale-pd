@@ -1,5 +1,6 @@
 import { saveNote } from './NoteProvider.js';
 import { getCriminals, useCriminalsAlphabetized } from '../criminals/CriminalProvider.js';
+import validator from './noteFormValidator.js';
 
 const contentTarget = document.querySelector('.noteFormContainer');
 const eventHub = document.querySelector('.container');
@@ -11,27 +12,17 @@ contentTarget.addEventListener('submit', event => {
   if(event.target.id === 'note-form') {
     event.preventDefault();
 
-    const note = {
-      timestamp: Date.now()
-    };
+    const note = createNoteObjectFromFormData(event.target.elements);
 
-    for(const element of event.target.elements) {
-      element.disabled = true;
+    const errors = validator.validate(note);
 
-      if(element.nodeName.toLowerCase() !== 'button') {
-        let valueToStore = element.value;
-
-        if(element.name === 'criminalId') {
-          valueToStore = parseInt(element.value);
-        }
-
-        note[element.name] = valueToStore;
-      }
+    if(errors.length === 0) {
+      saveNote(note);
     }
-
-    saveNote(note);
   }
 });
+
+
 
 const render = criminals => {
   contentTarget.innerHTML = `
@@ -77,6 +68,28 @@ const toggleNoteFormDisplay = event => {
   if(event.detail.shouldHideNotes) derender();
   else NoteForm()
 };
+
+const createNoteObjectFromFormData = formElements => {
+  const note = {
+    timestamp: Date.now()
+  };
+
+  for(const element of formElements) {
+    element.disabled = true;
+
+    if(element.nodeName.toLowerCase() !== 'button') {
+      let valueToStore = element.value;
+
+      if(element.name === 'criminalId') {
+        valueToStore = parseInt(element.value);
+      }
+
+      note[element.name] = valueToStore;
+    }
+  }
+
+  return note;
+}
 
 // re-render the form once the note you submitted has been succesfully saved. this will clear all form inputs and re-enable all of them.
 eventHub.addEventListener('noteStateChanged', NoteForm);
