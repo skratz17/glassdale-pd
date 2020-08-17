@@ -1,17 +1,17 @@
 import { getNotes, useNotesReverseChronological } from './NoteProvider.js';
-import { getCriminals, useCriminals } from '../criminals/CriminalProvider.js';
+import { getCriminals, useCriminals, useCriminalById } from '../criminals/CriminalProvider.js';
 import { Note } from './Note.js';
 
 const contentTarget = document.querySelector('.notesContainer');
 const eventHub = document.querySelector('.container');
 
-const render = (notes, criminals) => {
+const render = notes => {
   contentTarget.innerHTML = `
     <h2 class="header">Case Notes</h2>
     ${
       notes
         .map(note => {
-          const criminal = criminals.find(criminal => criminal.id === note.criminalId);
+          const criminal = useCriminalById(note.criminalId);
           return Note(note, criminal);
         })
         .join('')
@@ -39,4 +39,7 @@ const toggleNoteListDisplay = event => {
 };
 
 eventHub.addEventListener('notesToggled', toggleNoteListDisplay);
-eventHub.addEventListener('noteStateChanged', NoteList);
+eventHub.addEventListener('noteStateChanged', () => {
+  const notes = useNotesReverseChronological();
+  render(notes);
+});
