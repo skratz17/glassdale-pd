@@ -1,4 +1,15 @@
 import escapeHTML from '../utilities/escapeHTML.js';
+import { deleteNote } from '../notes/NoteProvider.js';
+
+const eventHub = document.querySelector('.container');
+
+eventHub.addEventListener('click', event => {
+  if(event.target.id.startsWith('delete-note--')) {
+    const id = event.target.id.split('--')[1];
+
+    deleteNote(id);
+  }
+});
 
 export const Note = (note, criminal) => {
   const { id, title, author, text, timestamp } = note;
