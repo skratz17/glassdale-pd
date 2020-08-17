@@ -15,6 +15,10 @@ export const useAssociates = criminalId => {
     .slice()
 };
 
+export const useCriminalById = criminalId => {
+  return criminals.find(criminal => criminal.id === parseInt(criminalId))
+}
+
 /**
  * Get criminals from glassdale API if not already loaded into application state.
  * @param {boolean} force Set to true to force reloading criminals from external API, otherwise function will first check if criminals already loaded from API and will not reload if already loaded in.

@@ -1,7 +1,18 @@
 import escapeHTML from '../utilities/escapeHTML.js';
+import { deleteNote } from '../notes/NoteProvider.js';
+
+const eventHub = document.querySelector('.container');
+
+eventHub.addEventListener('click', event => {
+  if(event.target.id.startsWith('delete-note--')) {
+    const id = event.target.id.split('--')[1];
+
+    deleteNote(id);
+  }
+});
 
 export const Note = (note, criminal) => {
-  const { title, author, text, timestamp } = note;
+  const { id, title, author, text, timestamp } = note;
 
   const dateObj = new Date(timestamp);
   const formattedDate = dateObj.toLocaleDateString('en-us');
@@ -26,6 +37,7 @@ export const Note = (note, criminal) => {
           <p title="${escapeHTML(fullDateString)}" class="note__content note__date">${escapeHTML(formattedDate)}</p>
         </div>
       </div>
+      <button class="btn note__delete-button" id="delete-note--${escapeHTML(id)}">Delete Note</button>
     </section>
   `;
 };
