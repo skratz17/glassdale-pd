@@ -13,10 +13,10 @@ contentTarget.addEventListener('click', event => {
     activeListIndex = getNextListIndex();
     const listToDisplay = lists[activeListIndex];
 
-    const criminalsOrWitnessesToggled = new CustomEvent('listChanged', {
+    const listChangedEvent = new CustomEvent('listChanged', {
       detail: { listToDisplay: listToDisplay.name }
     });
-    eventHub.dispatchEvent(criminalsOrWitnessesToggled);
+    eventHub.dispatchEvent(listChangedEvent);
 
     render();
   }
