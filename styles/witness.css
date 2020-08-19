@@ -1,10 +1,5 @@
 .witnessList {
-  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
-  grid-gap: 2rem;
-  max-width: 1200px;
-  justify-content: center;
-  margin: 0 auto;
 }
 
 .witness {
@@ -12,7 +7,7 @@
 }
 
 .witness::after {
-  background: url('../assets/magnifyingGlass.png') top center / cover;
+  background: url('../assets/magnifyingGlass.png') no-repeat top center / cover;
 }
 
 .witness__name {

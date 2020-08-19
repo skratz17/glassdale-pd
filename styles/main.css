@@ -3,6 +3,7 @@
 @import './card.css';
 @import './criminal.css';
 @import './witness.css';
+@import './facilities.css';
 @import './noteForm.css';
 @import './notes.css';
 
@@ -40,6 +41,14 @@ body {
   flex: 0;
 }
 
+.list {
+  display: grid;
+  grid-gap: 2rem;
+  max-width: 1200px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 .header {
   text-align: center;
 }
@@ -65,4 +74,8 @@ body {
 
 .hide {
   display: none;
+}
+
+.italic {
+  font-style: italic;
 }

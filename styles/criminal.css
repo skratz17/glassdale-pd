@@ -1,14 +1,9 @@
 .criminalList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 250px));
-  grid-gap: 2rem;
-  max-width: 1200px;
-  justify-content: center;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 250px))
 }
 
 .criminal::after {
-  background: url('../assets/jail.png') center center / contain;
+  background: url('../assets/criminal.png') no-repeat center center / contain;
 }
 
 .criminal__name {
@@ -42,13 +37,6 @@
   text-align: center;
   margin: 1rem auto;
 }
-
-.criminal__facility--1 { color: #db1919; }
-.criminal__facility--2 { color: #c87f00; }
-.criminal__facility--3 { color: #b7ab00; }
-.criminal__facility--4 { color: #2a4dfc; }
-.criminal__facility--5 { color: #e02afc; }
-.criminal__facility--6 { color: #09a21d; }
 
 .associates-wrapper {
   display: flex;

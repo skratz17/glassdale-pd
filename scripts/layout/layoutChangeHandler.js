@@ -3,6 +3,7 @@
  */
 import { CriminalList } from '../criminals/CriminalList.js';
 import { WitnessList } from '../witnesses/WitnessList.js';
+import { FacilityList } from '../facilities/FacilityList.js';
 
 const eventHub = document.querySelector('.container');
 const rightColumnDOMNode = document.querySelector('.content--right');
@@ -23,9 +24,9 @@ eventHub.addEventListener('notesToggled', event => {
 });
 
 /**
- * Listen for the criminals or witness list toggle event - render the proper list and hide/show the filters depending on which list chosen
+ * Listen for the list change event - swap out which list is currently being rendered in the main app area
  */
-eventHub.addEventListener('criminalsOrWitnessesToggled', event => {
+eventHub.addEventListener('listChanged', event => {
   const listToDisplay = event.detail.listToDisplay;
 
   if(listToDisplay === 'criminalList') {
@@ -34,6 +35,10 @@ eventHub.addEventListener('criminalsOrWitnessesToggled', event => {
   }
   else if(listToDisplay === 'witnessList') {
     WitnessList();
+    filtersDOMNode.classList.add('hide');
+  }
+  else if(listToDisplay === 'facilityList') {
+    FacilityList();
     filtersDOMNode.classList.add('hide');
   }
 });
