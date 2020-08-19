@@ -1,4 +1,7 @@
 import { getCriminals, useCriminals } from './CriminalProvider.js';
+import { getFacilities, useFacilities } from '../facilities/FacilityProvider.js';
+import { getCriminalFacilities, useCriminalFacilities } from '../facilities/CriminalFacilityProvider.js';
+
 import { useConvictions } from '../convictions/ConvictionProvider.js';
 import { useOfficers } from '../officers/OfficerProvider.js';
 import { Criminal } from './Criminal.js';
@@ -75,7 +78,13 @@ const getFilteredCriminals = () => {
   return filteredCriminals;
 };
 
-const render = criminals => {
+const render = (criminals, facilities, criminalFacilities) => {
+  criminals.forEach(criminal => {
+    criminal.facilities = criminalFacilities
+      .filter(criminalFacility => criminalFacility.criminalId === criminal.id)
+      .map(criminalFacility => facilities.find(facility => facility.id === criminalFacility.facilityId));
+  });
+
   const criminalsHTML = criminals.map(Criminal).join('');
 
   domNode.innerHTML = `
@@ -88,8 +97,12 @@ const render = criminals => {
 
 export const CriminalList = () => {
   getCriminals()
+    .then(getFacilities)
+    .then(getCriminalFacilities)
     .then(() => {
       const criminals = useCriminals();
-      render(criminals);
+      const facilities = useFacilities();
+      const criminalFacilities = useCriminalFacilities();
+      render(criminals, facilities, criminalFacilities);
     });
 };
