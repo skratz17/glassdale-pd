@@ -23,7 +23,7 @@ contentTarget.addEventListener('click', event => {
 });
 
 const render = () => {
-  contentTarget.innerHTML = `<button id="activeListToggle" class="btn toggleActiveListButton toggleActiveListButton--${lists[activeListIndex].name}">Show ${lists[getNextListIndex()].displayName}</button>`;
+  contentTarget.innerHTML = `<button id="activeListToggle" class="btn toggleActiveListButton toggleActiveListButton--${lists[getNextListIndex()].name}">Show ${lists[getNextListIndex()].displayName}</button>`;
 }
 
 export const ToggleActiveListButton = () => {

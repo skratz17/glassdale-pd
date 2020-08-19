@@ -75,3 +75,7 @@ body {
 .hide {
   display: none;
 }
+
+.italic {
+  font-style: italic;
+}

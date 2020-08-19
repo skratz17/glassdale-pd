@@ -1,3 +1,33 @@
 .facilityList {
   grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
 }
+
+.facility {
+  text-align: center;
+}
+
+.facility::after {
+  background: url('../assets/jail.png') no-repeat center center / contain;
+}
+
+.facility__criminals-wrapper {
+  margin: 1rem 0;
+}
+
+.facility__criminals {
+  list-style-type: none;
+}
+
+.facility__criminals-header {
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: underline;
+  margin-bottom: 0.25rem;
+}
+
+.security-level--1 { color: #db1919; }
+.security-level--2 { color: #c87f00; }
+.security-level--3 { color: #b7ab00; }
+.security-level--4 { color: #2a4dfc; }
+.security-level--5 { color: #e02afc; }
+.security-level--6 { color: #09a21d; }

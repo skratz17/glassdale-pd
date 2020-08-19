@@ -7,7 +7,7 @@
 }
 
 .witness::after {
-  background: url('../assets/magnifyingGlass.png') top center / cover;
+  background: url('../assets/magnifyingGlass.png') no-repeat top center / cover;
 }
 
 .witness__name {

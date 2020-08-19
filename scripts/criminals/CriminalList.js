@@ -1,9 +1,10 @@
 import { getCriminals, useCriminals } from './CriminalProvider.js';
 import { getFacilities, useFacilities } from '../facilities/FacilityProvider.js';
 import { getCriminalFacilities, useCriminalFacilities } from '../facilities/CriminalFacilityProvider.js';
-
 import { useConvictions } from '../convictions/ConvictionProvider.js';
 import { useOfficers } from '../officers/OfficerProvider.js';
+
+import { FacilitiesLegend } from '../facilities/FacilitiesLegend.js';
 import { Criminal } from './Criminal.js';
 
 const domNode = document.querySelector('.mainListContainer');
@@ -90,18 +91,7 @@ const render = (criminals, facilities, criminalFacilities) => {
   const criminalsHTML = criminals.map(Criminal).join('');
 
   domNode.innerHTML = `
-    <details class="facilities-legend">
-      <summary>Facility Name Color Legend</summary>
-      <ul class="facilities-legend__list">
-        <li class="criminal__facility--1">Maximum Security</li>
-        <li class="criminal__facility--2">Secure Medium Security</li>
-        <li class="criminal__facility--3">High Medium Security</li>
-        <li class="criminal__facility--4">Medium Security</li>
-        <li class="criminal__facility--5">High Minimum Security</li>
-        <li class="criminal__facility--6">Minimum Security</li>
-      </ul>
-    </details>
-
+    ${ FacilitiesLegend() }
     <article class="list criminalList">
       ${criminalsHTML || '<p>No criminals match your filtering criteria :/</p>'}
     </article>

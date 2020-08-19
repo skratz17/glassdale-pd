@@ -18,10 +18,29 @@
   background-color: #fbc4c4;
 }
 
-.toggleActiveListButton--criminalList {
-  background: url('../assets/jail.png') center center / cover;
+.toggleActiveListButton {
+  position: relative;
 }
 
-.toggleActiveListButton--witnessList {
+.toggleActiveListButton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.25;
+}
+
+.toggleActiveListButton--criminalList::after {
+  background: url('../assets/criminal.png') center center / contain;
+}
+
+.toggleActiveListButton--witnessList::after {
   background: url('../assets/magnifyingGlass.png') center center / contain;
+}
+
+.toggleActiveListButton--facilityList::after {
+  background: url('../assets/jail.png') center center / cover;
 }
