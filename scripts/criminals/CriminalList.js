@@ -102,7 +102,7 @@ const render = (criminals, facilities, criminalFacilities) => {
       </ul>
     </details>
 
-    <article class="criminalList">
+    <article class="list criminalList">
       ${criminalsHTML || '<p>No criminals match your filtering criteria :/</p>'}
     </article>
   `;

@@ -1,10 +1,5 @@
 .criminalList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 250px));
-  grid-gap: 2rem;
-  max-width: 1200px;
-  justify-content: center;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 250px))
 }
 
 .criminal::after {

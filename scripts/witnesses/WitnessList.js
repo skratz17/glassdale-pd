@@ -5,7 +5,7 @@ const domNode = document.querySelector('.mainListContainer');
 
 const render = witnesses => {
   domNode.innerHTML = `
-    <article class="witnessList">
+    <article class="list witnessList">
       ${witnesses.map(Witness).join('')}
     </article>
   `;

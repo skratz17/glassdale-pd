@@ -14,7 +14,7 @@ const render = (facilities, criminals, criminalFacilities) => {
   });
 
   contentTarget.innerHTML = `
-    <article class="facilityList">
+    <article class="list facilityList">
       ${ facilities.map(Facility).join('') }
     </article>
   `
