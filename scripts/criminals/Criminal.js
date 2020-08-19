@@ -26,10 +26,10 @@ export const Criminal = criminal => {
         <span class="criminal__info-group-label">Term end</span>
         <span class="criminal__info-group-content">${escapeHTML(formattedEnd)}</span>
       </p>
-      <div class="criminal__info-group">
-        <p class="criminal__info-group-label">Facilities</p>
-        <ul>
-          ${ facilities.map(facility => `<li>${escapeHTML(facility.facilityName)}</li>`).join('') }
+      <div class="criminal__info-group criminal__facilities-info-group">
+        <p class="criminal__info-group-label criminal__facilities-info-group-label">Facilities</p>
+        <ul class="criminal__facilities-list">
+          ${ facilities.map(facility => `<li class="criminal__facility--${escapeHTML(facility.securityLevel.charAt(0))}">${escapeHTML(facility.facilityName)}</li>`).join('') }
         </ul>
       </div>
       <button class="btn criminal__associates-button" id="associates--${escapeHTML(id)}">Associate Alibis</button>
