@@ -5,7 +5,7 @@
 }
 
 .toggleNotesDisplayButton,
-.toggleCriminalsOrWitnessesButton {
+.toggleActiveListButton {
   margin: 1rem 0;
   margin-right: 1rem;
 }
@@ -18,10 +18,10 @@
   background-color: #fbc4c4;
 }
 
-.toggleCriminalsOrWitnessesButton--criminalList {
+.toggleActiveListButton--criminalList {
   background: url('../assets/jail.png') center center / cover;
 }
 
-.toggleCriminalsOrWitnessesButton--witnessList {
+.toggleActiveListButton--witnessList {
   background: url('../assets/magnifyingGlass.png') center center / contain;
 }
