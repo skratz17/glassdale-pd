@@ -3,6 +3,7 @@
  */
 import { CriminalList } from '../criminals/CriminalList.js';
 import { WitnessList } from '../witnesses/WitnessList.js';
+import { FacilityList } from '../facilities/FacilityList.js';
 
 const eventHub = document.querySelector('.container');
 const rightColumnDOMNode = document.querySelector('.content--right');
@@ -34,6 +35,10 @@ eventHub.addEventListener('criminalsOrWitnessesToggled', event => {
   }
   else if(listToDisplay === 'witnessList') {
     WitnessList();
+    filtersDOMNode.classList.add('hide');
+  }
+  else if(listToDisplay === 'facilityList') {
+    FacilityList();
     filtersDOMNode.classList.add('hide');
   }
 });

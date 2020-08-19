@@ -1,19 +1,13 @@
 const contentTarget = document.querySelector('.toggleCriminalsOrWitnessesButtonContainer');
 const eventHub = document.querySelector('.container');
 
-let isCriminalsListDisplayed = true;
+const lists = [ 'criminalList', 'witnessList', 'facilityList' ];
+let activeListIndex = 0;
 
 contentTarget.addEventListener('click', event => {
   if(event.target.id === 'criminalsOrWitnessesToggle') {
-    isCriminalsListDisplayed = !isCriminalsListDisplayed;
-
-    let listToDisplay;
-    if(isCriminalsListDisplayed) {
-      listToDisplay = 'criminalList';
-    }
-    else {
-      listToDisplay = 'witnessList';
-    }
+    activeListIndex = (activeListIndex + 1) % lists.length;
+    const listToDisplay = lists[activeListIndex];
 
     const criminalsOrWitnessesToggled = new CustomEvent('criminalsOrWitnessesToggled', {
       detail: { listToDisplay }
@@ -25,7 +19,7 @@ contentTarget.addEventListener('click', event => {
 });
 
 const render = () => {
-  contentTarget.innerHTML = `<button id="criminalsOrWitnessesToggle" class="btn toggleCriminalsOrWitnessesButton toggleCriminalsOrWitnessesButton--${isCriminalsListDisplayed ? 'witnesses' : 'criminals'}">Show ${isCriminalsListDisplayed ? 'Witnesses List' : 'Criminals List'}</button>`;
+  contentTarget.innerHTML = `<button id="criminalsOrWitnessesToggle" class="btn toggleCriminalsOrWitnessesButton toggleCriminalsOrWitnessesButton--${lists[activeListIndex]}">Show ${lists[(activeListIndex + 1) % lists.length]}</button>`;
 }
 
 export const ToggleCriminalsOrWitnessesButton = () => {

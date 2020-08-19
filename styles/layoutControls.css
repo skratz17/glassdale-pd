@@ -18,10 +18,10 @@
   background-color: #fbc4c4;
 }
 
-.toggleCriminalsOrWitnessesButton--criminals {
+.toggleCriminalsOrWitnessesButton--criminalList {
   background: url('../assets/jail.png') center center / cover;
 }
 
-.toggleCriminalsOrWitnessesButton--witnesses {
+.toggleCriminalsOrWitnessesButton--witnessList {
   background: url('../assets/magnifyingGlass.png') center center / contain;
 }
