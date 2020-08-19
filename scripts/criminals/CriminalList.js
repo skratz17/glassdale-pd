@@ -1,4 +1,7 @@
 import { getCriminals, useCriminals } from './CriminalProvider.js';
+import { getFacilities, useFacilities } from '../facilities/FacilityProvider.js';
+import { getCriminalFacilities, useCriminalFacilities } from '../facilities/CriminalFacilityProvider.js';
+
 import { useConvictions } from '../convictions/ConvictionProvider.js';
 import { useOfficers } from '../officers/OfficerProvider.js';
 import { Criminal } from './Criminal.js';
@@ -75,11 +78,30 @@ const getFilteredCriminals = () => {
   return filteredCriminals;
 };
 
-const render = criminals => {
+const render = (criminals, facilities, criminalFacilities) => {
+
+  // asign new facilities property to each criminal object containing array of facility objects where they were incarcerated
+  criminals.forEach(criminal => {
+    criminal.facilities = criminalFacilities
+      .filter(criminalFacility => criminalFacility.criminalId === criminal.id)
+      .map(criminalFacility => facilities.find(facility => facility.id === criminalFacility.facilityId));
+  });
+
   const criminalsHTML = criminals.map(Criminal).join('');
 
   domNode.innerHTML = `
-    
+    <details class="facilities-legend">
+      <summary>Facility Name Color Legend</summary>
+      <ul class="facilities-legend__list">
+        <li class="criminal__facility--1">Maximum Security</li>
+        <li class="criminal__facility--2">Secure Medium Security</li>
+        <li class="criminal__facility--3">High Medium Security</li>
+        <li class="criminal__facility--4">Medium Security</li>
+        <li class="criminal__facility--5">High Minimum Security</li>
+        <li class="criminal__facility--6">Minimum Security</li>
+      </ul>
+    </details>
+
     <article class="criminalList">
       ${criminalsHTML || '<p>No criminals match your filtering criteria :/</p>'}
     </article>
@@ -88,8 +110,12 @@ const render = criminals => {
 
 export const CriminalList = () => {
   getCriminals()
+    .then(getFacilities)
+    .then(getCriminalFacilities)
     .then(() => {
       const criminals = useCriminals();
-      render(criminals);
+      const facilities = useFacilities();
+      const criminalFacilities = useCriminalFacilities();
+      render(criminals, facilities, criminalFacilities);
     });
 };
