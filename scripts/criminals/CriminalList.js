@@ -29,7 +29,7 @@ eventHub.addEventListener('convictionChanged', event => {
     delete activeFilters.conviction;
   }
 
-  getFilteredCriminals();
+  filterCriminalsByActiveFilters();
   render();
 });
 
@@ -44,7 +44,7 @@ eventHub.addEventListener('officerChanged', event => {
     delete activeFilters.officer;
   }
 
-  getFilteredCriminals();
+  filterCriminalsByActiveFilters();
   render();
 });
 
@@ -75,7 +75,7 @@ eventHub.addEventListener('associateListClosed', event => {
  * Filter down the criminals array based on all filters currently active.
  * Returns array of criminals after having been filtered by all active filters.
  */
-const getFilteredCriminals = () => {
+const filterCriminalsByActiveFilters = () => {
   criminals = useCriminals();
 
   Object.keys(activeFilters).forEach(filterType => 
