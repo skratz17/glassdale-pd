@@ -14,6 +14,10 @@ const eventHub = document.querySelector('.container');
 // i.e. - activeFilters.conviction = <function to filter criminal array by selected conviction>
 const activeFilters = {};
 
+let criminals = [];
+let facilities = [];
+let criminalFacilities = [];
+
 eventHub.addEventListener('convictionChanged', event => {
   const convictions = useConvictions();
   const foundConviction = convictions.find(conviction => conviction.id === event.detail.convictionId);
@@ -25,7 +29,8 @@ eventHub.addEventListener('convictionChanged', event => {
     delete activeFilters.conviction;
   }
 
-  render(getFilteredCriminals());
+  getFilteredCriminals();
+  render();
 });
 
 eventHub.addEventListener('officerChanged', event => {
@@ -39,7 +44,8 @@ eventHub.addEventListener('officerChanged', event => {
     delete activeFilters.officer;
   }
 
-  render(getFilteredCriminals());
+  getFilteredCriminals();
+  render();
 });
 
 domNode.addEventListener('click', event => {
@@ -70,16 +76,14 @@ eventHub.addEventListener('associateListClosed', event => {
  * Returns array of criminals after having been filtered by all active filters.
  */
 const getFilteredCriminals = () => {
-  let filteredCriminals = useCriminals();
+  criminals = useCriminals();
 
   Object.keys(activeFilters).forEach(filterType => 
-    filteredCriminals = filteredCriminals.filter(activeFilters[filterType])
+    criminals = criminals.filter(activeFilters[filterType])
   );
-
-  return filteredCriminals;
 };
 
-const render = (criminals, facilities, criminalFacilities) => {
+const render = () => {
 
   // asign new facilities property to each criminal object containing array of facility objects where they were incarcerated
   criminals.forEach(criminal => {
@@ -103,9 +107,9 @@ export const CriminalList = () => {
     .then(getFacilities)
     .then(getCriminalFacilities)
     .then(() => {
-      const criminals = useCriminals();
-      const facilities = useFacilities();
-      const criminalFacilities = useCriminalFacilities();
-      render(criminals, facilities, criminalFacilities);
+      criminals = useCriminals();
+      facilities = useFacilities();
+      criminalFacilities = useCriminalFacilities();
+      render();
     });
 };
